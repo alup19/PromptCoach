@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Coach — avalie seu prompt antes de enviar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wordmark">prompt_coach<span class="cursor">_</span></div>
+    <div class="tagline">// avalie e melhore um prompt antes de gastar tokens com ele</div>
+    <div id="statusBadge" class="status-badge status-checking">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span id="statusText">verificando servidor local...</span>
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <section class="panel editor-panel" aria-labelledby="inputLabel">
+      <h2 id="inputLabel" class="panel-label">// seu prompt</h2>
+      <div class="editor-frame">
+        <div id="gutter" class="gutter" aria-hidden="true">1</div>
+        <textarea id="promptInput" class="editor-textarea" placeholder="Cole aqui o prompt que você pretende usar em alguma IA..." spellcheck="false"></textarea>
+      </div>
+      <div class="editor-footer">
+        <span id="charCount" class="char-count">0 caracteres</span>
+        <button id="evaluateBtn" class="primary-btn" type="button">Avaliar prompt →</button>
+      </div>
+      <p id="inlineError" class="inline-error" hidden></p>
+    </section>
+
+    <section class="panel result-panel" aria-labelledby="resultLabel">
+      <h2 id="resultLabel" class="panel-label">// avaliação</h2>
+
+      <div id="emptyState" class="empty-state">
+        <p>Nenhuma avaliação ainda.</p>
+        <p class="muted">Cole um prompt no painel ao lado e clique em <strong>Avaliar prompt</strong>.</p>
+      </div>
+
+      <div id="loadingState" class="loading-state" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Avaliando seu prompt...</p>
+      </div>
+
+      <div id="resultState" class="result-state" hidden>
+
+        <div class="gauge-block">
+          <svg id="gaugeSvg" class="gauge" viewBox="0 0 200 120" aria-hidden="true">
+            <path id="gaugeTrack" class="gauge-track" d="M20,110 A90,90 0 0 1 180,110" />
+            <path id="gaugeFill" class="gauge-fill" d="M20,110 A90,90 0 0 1 180,110" />
+            <g id="needleGroup" class="needle-group">
+              <line x1="100" y1="110" x2="100" y2="35" class="needle" />
+              <circle cx="100" cy="110" r="6" class="needle-hub" />
+            </g>
+          </svg>
+          <div class="gauge-readout">
+            <span id="scoreValue" class="score-value">–</span>
+            <span class="score-suffix">/10</span>
+          </div>
+        </div>
+
+        <div class="criteria-block">
+          <h3 class="sub-label">// critérios</h3>
+          <ul id="criteriaList" class="criteria-list"></ul>
+        </div>
+
+        <div class="weak-block">
+          <h3 class="sub-label">// pontos a melhorar</h3>
+          <ul id="weakList" class="weak-list"></ul>
+        </div>
+
+        <div class="improved-block">
+          <h3 class="sub-label">// prompt melhorado</h3>
+          <pre id="improvedPrompt" class="improved-box"></pre>
+          <button id="copyBtn" class="ghost-btn" type="button">Copiar prompt melhorado</button>
+          <span id="copiedMsg" class="saved-msg" hidden>✓ Copiado</span>
+        </div>
+
+      </div>
+
+      <div id="errorState" class="error-state" hidden>
+        <p class="error-title">Não foi possível avaliar o prompt.</p>
+        <p id="errorDetail" class="error-detail"></p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Projeto acadêmico · o front-end conversa com a API local em Express, que guarda a chave da <a href="https://openrouter.ai" target="_blank" rel="noopener">OpenRouter</a> no servidor e nunca a expõe no navegador.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
