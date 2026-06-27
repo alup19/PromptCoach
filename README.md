@@ -26,7 +26,9 @@ prompt-coach/
 ├── public/            → front-end estático, servido pelo próprio Express
 │   ├── index.html
 │   ├── style.css
-│   └── script.js
+│   ├── script.js
+│   └── imgs/
+│       └── favicon.png
 └── README.md
 ```
 

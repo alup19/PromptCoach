@@ -83,7 +83,7 @@ function parseModelJson(content) {
   } catch (_) {
     const match = cleaned.match(/\{[\s\S]*\}/);
     if (match) {
-      try { return JSON.parse(match[0]); } catch (_) {}
+      try { return JSON.parse(match[0]); } catch (_) { }
     }
     throw new Error('Não foi possível interpretar a resposta do modelo como JSON.');
   }

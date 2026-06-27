@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prompt Coach — avalie seu prompt antes de enviar</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Coach — avalie seu prompt antes de enviar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="imgs/favicon.png" type="image/png">
 </head>
+
 <body>
 
   <header class="topbar">
@@ -26,7 +31,8 @@
       <h2 id="inputLabel" class="panel-label">// seu prompt</h2>
       <div class="editor-frame">
         <div id="gutter" class="gutter" aria-hidden="true">1</div>
-        <textarea id="promptInput" class="editor-textarea" placeholder="Cole aqui o prompt que você pretende usar em alguma IA..." spellcheck="false"></textarea>
+        <textarea id="promptInput" class="editor-textarea"
+          placeholder="Cole aqui o prompt que você pretende usar em alguma IA..." spellcheck="false"></textarea>
       </div>
       <div class="editor-footer">
         <span id="charCount" class="char-count">0 caracteres</span>
@@ -94,9 +100,12 @@
   </main>
 
   <footer class="footer">
-    <p>Projeto acadêmico · o front-end conversa com a API local em Express, que guarda a chave da <a href="https://openrouter.ai" target="_blank" rel="noopener">OpenRouter</a> no servidor e nunca a expõe no navegador.</p>
+    <p>Projeto acadêmico · o front-end conversa com a API local em Express, que guarda a chave da <a
+        href="https://openrouter.ai" target="_blank" rel="noopener">OpenRouter</a> no servidor e nunca a expõe no
+      navegador.</p>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>
